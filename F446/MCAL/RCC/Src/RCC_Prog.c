@@ -114,7 +114,7 @@ void RCC_configure_PLL(RCC_PLLM_t PLL_M, RCC_PLLN_t PLL_N, RCC_PLLP_t PLL_P, RCC
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAHB1EnablePeripheralClock( EN_AHB1_Peripheral_t Peripheral ){
-	RCC-> AHB1ENR |= (1<< peripheral);
+	RCC-> AHB1ENR |= (1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -124,7 +124,7 @@ void RCC_voidAHB1EnablePeripheralClock( EN_AHB1_Peripheral_t Peripheral ){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAHB1DisablePeripheralClock( EN_AHB1_Peripheral_t Peripheral){
-	RCC-> AHB1ENR &= ~(1<< peripheral);
+	RCC-> AHB1ENR &= ~(1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -134,7 +134,7 @@ void RCC_voidAHB1DisablePeripheralClock( EN_AHB1_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAHB2EnablePeripheralClock( EN_AHB2_Peripheral_t Peripheral){
-	RCC-> AHB2ENR |= (1<< peripheral);
+	RCC-> AHB2ENR |= (1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -144,7 +144,7 @@ void RCC_voidAHB2EnablePeripheralClock( EN_AHB2_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAHB2DisablePeripheralClock( EN_AHB2_Peripheral_t Peripheral){
-	RCC-> AHB2ENR &= ~(1<< peripheral);
+	RCC-> AHB2ENR &= ~(1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -154,7 +154,7 @@ void RCC_voidAHB2DisablePeripheralClock( EN_AHB2_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAHB3EnablePeripheralClock( EN_AHB3_Peripheral_t Peripheral){
-	RCC-> AHB3ENR |= (1<< peripheral);
+	RCC-> AHB3ENR |= (1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -164,7 +164,7 @@ void RCC_voidAHB3EnablePeripheralClock( EN_AHB3_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAHB3DisablePeripheralClock( EN_AHB3_Peripheral_t Peripheral){
-	RCC-> AHB3ENR &= ~(1<< peripheral);
+	RCC-> AHB3ENR &= ~(1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -174,7 +174,7 @@ void RCC_voidAHB3DisablePeripheralClock( EN_AHB3_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAPB1EnablePeripheralClock( EN_APB1_Peripheral_t Peripheral){
-	RCC-> APB1ENR |= (1<< peripheral);
+	RCC-> APB1ENR |= (1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -184,7 +184,7 @@ void RCC_voidAPB1EnablePeripheralClock( EN_APB1_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAPB1DisablePeripheralClock( EN_APB1_Peripheral_t Peripheral){
-	RCC-> APB1ENR &= ~(1<< peripheral);
+	RCC-> APB1ENR &= ~(1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -193,8 +193,8 @@ void RCC_voidAPB1DisablePeripheralClock( EN_APB1_Peripheral_t Peripheral){
 * Parameters   : EN_APB2_Peripheral_t the peripheral   
 * Return value : Void 
 *****************************************************************************/
-void RCC_voidAPB1EnablePeripheralClock( EN_APB2_Peripheral_t Peripheral){
-	RCC-> APB2ENR |= (1<< peripheral);
+void RCC_voidAPB2EnablePeripheralClock( EN_APB2_Peripheral_t Peripheral){
+	RCC-> APB2ENR |= (1<< Peripheral);
 }
 
 /*****************************************************************************
@@ -204,7 +204,7 @@ void RCC_voidAPB1EnablePeripheralClock( EN_APB2_Peripheral_t Peripheral){
 * Return value : Void 
 *****************************************************************************/
 void RCC_voidAPB2DisablePeripheralClock( EN_APB2_Peripheral_t Peripheral){
-	RCC-> APB2ENR &= ~(1<< peripheral);
+	RCC-> APB2ENR &= ~(1<< Peripheral);
 }
 
 

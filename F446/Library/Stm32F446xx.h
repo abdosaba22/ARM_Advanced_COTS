@@ -19,6 +19,9 @@
 
 #define NVIC_BASE_ADDRESS			0xE000E100UL
 	
+/******************* SCB Peripheral Base Addresses ****************/
+
+#define SCB_BASE_ADDRESS		0xE000ED00UL
 
  
 /********************* AHB1 Peripheral Base Addresses *****************/
@@ -46,8 +49,10 @@
 
 
 
-/********************* APB1 Peripheral Base Addresses *****************/
+/********************* APB2 Peripheral Base Addresses *****************/
 
+#define SYSCFG_BASE_ADDRESS		0x40013800UL
+#define EXTI_BASE_ADDRESS		0x40013C00UL
 
 
 /******************* GPIO Register Definition Structure **************/
@@ -107,12 +112,34 @@ typedef struct
 
 
 /*************** SYSTICK Register Definition Structure **********/
+
 typedef struct {
   volatile uint32_t CSR;       /*!< SYSTICK Control and Status Register,                        */
   volatile uint32_t RVR;       /*!< SYSTICK Reload Value Register,                              */
   volatile uint32_t CVR;       /*!< SYSTICK Current Value Register,                             */
   volatile uint32_t CALIB;     /*!< SYSTICK Calibration Value Register,                         */	
 } SYSTICK_RegDef_t;
+
+/************************** SCB Register Definition Structure ***********************/
+
+typedef struct
+{
+	volatile uint32_t CPUID;					/*CPUID base register*/
+	volatile uint32_t ICSR;                  /*Interrupt control and state register*/
+	volatile uint32_t VTOR;                  /*Vector table offset register*/
+	volatile uint32_t AIRCR;                 /*Application interrupt and reset control register*/
+	volatile uint32_t SCR;                   /*System control register*/
+	volatile uint32_t CCR;                   /*Configuration and control register*/
+	volatile uint32_t SHPR[3];               /*System handler priority registers*/
+	volatile uint32_t SHCSR;                 /*System handler control and state register*/
+	volatile uint32_t CFSR;                  /*Configurable fault status register*/
+	volatile uint32_t HFSR;                  /*Hard fault status register*/
+	volatile uint32_t Reserved;
+	volatile uint32_t MMAR;                  /*Memory management fault address register*/
+	volatile uint32_t BFAR;                  /*Bus fault status register*/
+	volatile uint32_t AFSR;                  /*Auxiliary fault status register*/
+}SCB_RegDef_t;
+
 
 
 /************************* NVIC Register Definition Structure ***********************/
@@ -135,6 +162,34 @@ typedef struct
     volatile uint32_t STIR;              /* Software Trigger Interrupt Register */
 }NVIC_RegDef_t;
 
+
+/************************* EXTI Register Definition Structure ***********************/
+
+typedef struct
+{
+	volatile uint32_t IMR;               /*Interrupt mask register*/
+	volatile uint32_t EMR;               /*Event mask register*/
+	volatile uint32_t RTSR;              /*Rising trigger selection register*/
+	volatile uint32_t FTSR;              /*Falling trigger selection register*/
+	volatile uint32_t SWIER;             /*Software interrupt event register*/
+	volatile uint32_t PR;                /*Pending register*/
+}EXTI_RegDef_t;
+
+
+/************** SYSCFG Register Definition Structure ****************/
+
+typedef struct
+{
+	volatile uint32_t MEMRMP;			/*SYSCFG memory remap register*/
+	volatile uint32_t PMC;				/*SYSCFG peripheral mode configuration register*/
+	volatile uint32_t EXTICR[4];			/*SYSCFG external interrupt configuration registers*/
+	uint32_t Reserved[2];
+	volatile uint32_t CMPCR;				/*Compensation cell control register*/
+	uint32_t Reserved2[2];
+	volatile uint32_t CFGR;				/*SYSCFG configuration register*/
+}SYSCFG_RegDef_t;
+
+
 /******************* GPIO Peripheral Definition **************/
 
 #define GPIOA                ((GPIO_RegDef_t*)GPIOA_BASE_ADDRESS)
@@ -154,10 +209,21 @@ typedef struct
 
 #define SYSTICK 			 ((SYSTICK_RegDef_t*) SYSTICK_BASE_ADDRESS)
 
-/************************ NVIC Definition **********************/
+/************************ SCB Peripheral Definition **********************/
+
+#define SCB					((SCB_RegDef_t*) SCB_BASE_ADDRESS)
+
+/************************ NVIC Peripheral Definition **********************/
 
 #define NVIC				 ((NVIC_RegDef_t*) NVIC_BASE_ADDRESS)
 
+/***************************** EXTI Peripheral Definitions **************************/
+
+#define EXTI					((EXTI_RegDef_t*)EXTI_BASE_ADDRESS)
+
+/***************************** SYSCFG Peripheral Definitions **************************/
+
+#define SYSCFG					((SYSCFG_RegDef_t*)SYSCFG_BASE_ADDRESS)
 
 
 #endif
