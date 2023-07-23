@@ -24,7 +24,7 @@ void LED_HAL_Toggle(Port_t LED_Port, PinNum_t LED_Pin) {
 
 void LED_HAL_Init(const LED_t * LED_Config)
 {
-    GPIO_u8PinInit(&LED_Config);
+    GPIO_u8PinInit(&LED_Config->LedPin);
 	switch(LED_Config->conn_type)
 	{
 	case LED_SourceConnnec	: GPIO_u8setpinValue(LED_Config->LedPin.Port,LED_Config->LedPin.Pin,PIN_LOW); break; /* turn off led*/
